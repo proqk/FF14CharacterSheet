@@ -48,6 +48,18 @@ dd{
     margin-left: 90px;
 }
 
+.aligntable{
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 3;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.aligntable>* {
+   	flex: 1 1 33%;
+}
+
 select {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
@@ -108,13 +120,19 @@ input{
 	color: #fff;
 }
 
-.input-name{
+.inputvalue{
   position: relative;
   display: inline-block;
   overflow: hidden;
 }
 
-.input-name > input[type=text]{
+.inputvalue > input[type=text]{
+  border: none;
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+.inputvalue > input[type=number]{
   border: none;
   border-bottom: 2px solid #c0c0c0;
   outline: none;
@@ -126,13 +144,18 @@ input{
   bottom: 0;
   left: -100%;
   position: absolute;
-  width: 100%;
   height: 2px;
   background-color: #64e4fe;
 }
 
-.input-name > input[type=text]:focus + .underline-animation{
+.inputvalue > input[type=text]:focus + .underline-animation{
   left: 0;
+  width: 100%;
+}
+
+.inputvalue > input[type=number]:focus + .underline-animation{
+  left: 0;
+  width: 30%;
 }
 
 input[type="file"] {
@@ -170,4 +193,20 @@ input[type="checkbox"] {
     margin: 3px 3px 3px 4px;
     padding: initial;
     border: initial;
+}
+
+tr.top td {
+  border-top: thin solid black;
+}
+
+tr.bottom td {
+  border-bottom: thin solid black;
+}
+
+tr.row td:first-child {
+  border-left: thin solid black;
+}
+
+tr.row td:last-child {
+  border-right: thin solid black;
 }
